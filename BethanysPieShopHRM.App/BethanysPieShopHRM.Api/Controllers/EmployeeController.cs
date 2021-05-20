@@ -65,9 +65,9 @@ namespace BethanysPieShopHRM.Api.Controllers
             if (employeeToUpdate == null)
                 return NotFound();
 
-            _employeeRepository.UpdateEmployee(employee);
+            var updatedEmployee = _employeeRepository.UpdateEmployee(employee);
 
-            return NoContent(); //success
+            return Created("updated employee", updatedEmployee); //success
         }
 
         [HttpDelete("{id}")]
