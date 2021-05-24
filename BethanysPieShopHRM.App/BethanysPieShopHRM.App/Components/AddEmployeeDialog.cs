@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 
 namespace BethanysPieShopHRM.App.Components
 {
-    public partial class AddEmployeeDialog
+    public partial class AddEmployeeDialog : ComponentBase
     {
         public Employee Employee { get; set; } = new Employee { CountryId = 1, JobCategoryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now };
 
 
         [Inject]
         public IEmployeeDataService _employeeDataService { get; set; }
+
+        [Parameter]
+        public EventCallback<bool> CloseEventCallback { get; set; }
+
 
         public bool ShowDialog { get; set; }
 
@@ -35,6 +39,16 @@ namespace BethanysPieShopHRM.App.Components
         {
             var addedEmployee = await _employeeDataService.AddEmployee(Employee);
             ShowDialog = false;
+
+            if (addedEmployee is object)
+            {
+                await CloseEventCallback.InvokeAsync(true);
+            }
+            else
+            {
+                await CloseEventCallback.InvokeAsync(false);
+            }
+
             StateHasChanged();
         }
 
