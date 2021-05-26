@@ -12,7 +12,7 @@ namespace BethanysPieShopHRM.App.Services
 
         Task<Employee> AddEmployee(Employee employee);
 
-        Task UpdateEmployee(Employee employee);
+        Task<Employee> UpdateEmployee(Employee employee);
 
         Task DeleteEmployee(int employeeId);
     }

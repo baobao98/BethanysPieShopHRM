@@ -32,6 +32,9 @@ else
                         <a href="@($"employeedetail/{employee.EmployeeId}")" class="btn btn-primary table-btn">
                             Detail
                         </a>
+                        <a href="@($"employeeedit/{employee.EmployeeId}")" class="btn btn-primary table-btn">
+                            Edit
+                        </a>
                     </td>  
                 </tr>
             }
@@ -39,3 +42,5 @@ else
     </table>
 }
 
+<button @onclick="QuickAddEmployee" class="btn btn-dark table-btn quick-add-btn">&nbsp;&nbsp;+&nbsp;</button>
+<AddEmployeeDialog @ref="AddEmployeeDialog" CloseEventCallback="@AddEmployeeDialog_OnDialogClose"></AddEmployeeDialog>
