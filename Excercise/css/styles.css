@@ -25,10 +25,16 @@ nav>ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav>ul>li:nth-child(1) {
+    flex-grow: 1;
 }
 
 nav>ul>li {
-    float: left;
+    /* float: left; */
 }
 
 nav>ul>li a {
@@ -72,14 +78,21 @@ nav>ul>li a {
     margin-right: auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-content: space-between;
+    justify-content: center;
+}
+
+.leftMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .pieGallery {
     display: flex;
     flex-direction: row;
-    width: 60%;
+    flex-basis: 60%;
     flex-wrap: wrap;
     align-content: flex-start;
 }
@@ -88,14 +101,37 @@ nav>ul>li a {
     display: flex;
     flex-direction: column;
     margin: .4rem;
-    align-items: center;
+    /* align-items: center; */
     background-color: #ffff;
     box-shadow: 0 2 4px rgba(0, 0, 0, .3);
+    flex-grow: 1;
+}
+
+.pieCard>img {
+    align-self: center;
 }
 
 .pieCard>h5,
 .pieCard>p {
     margin: .2rem 0;
+}
+
+#promos {
+    align-self: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3rem);
+    border-radius: 20px;
+}
+
+#promos>h3 {
+    margin: 5px 0;
+}
+
+.cardRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .pageTitle {
@@ -106,29 +142,43 @@ nav>ul>li a {
 .main {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    flex-basis: 60%;
 }
 
 .pieRow {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    background-color: #ffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    padding-right: .5rem;
 }
 
-.leftMenu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.pieRow>div {
+    flex-grow: 2;
+    padding-left: .4rem;
+}
+
+.pieRow h5,
+.pieRow p {
+    margin: 0;
+}
+
+.pieRow>small {
+    flex-shrink: 3;
 }
 
 .box {
-    width: 300px;
-    height: 200px;
+    width: 150px;
+    height: 100px;
     margin: .3rem .6rem;
     background-color: red;
+}
+
+.mainContent>.box:nth-child(3) {
+    flex-shrink: 2;
 }
 
 /*Footer*/
@@ -142,3 +192,30 @@ footer>p,
 footer>address {
     margin: .5rem 0;
 }
+
+.videoContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.videoContainer>iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Media query */
+@media screen and (max-width: 600px) {
+    .leftMenu {
+        order: 1;
+    }
+
+    .main,
+    .pieGallery {
+        flex-basis: 90% !important;
+    }
+}
+
+/* Challenge  */

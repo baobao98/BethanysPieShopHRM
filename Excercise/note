@@ -1,0 +1,7 @@
+In display flex
+Align-items is similar to justify-content
+Align-items is for cross axis
+Justify-content is for main axis
+
+align-content is for multi line flexible boxes. It has no effect when items are in a single line.
+It aligns the whole structure according to its value
